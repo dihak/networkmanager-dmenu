@@ -292,7 +292,8 @@ def create_ap_actions(aps, active_ap, active_connection, adapter):  # pylint: di
     ap_actions = []
 
     for nm_ap, name, sec in zip(aps, names, secs):
-        bars = NM.utils_wifi_strength_bars(nm_ap.get_strength())
+        #bars = NM.utils_wifi_strength_bars(nm_ap.get_strength())
+        bars = str(nm_ap.get_strength()) + "%"
         is_active = nm_ap.get_bssid() == active_ap_bssid
         action_name = u"{:<{}s}  {:<{}s}  {}".format(name, max_len_name, sec,
                                                      max_len_sec, bars)
